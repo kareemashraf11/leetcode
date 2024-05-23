@@ -1,0 +1,2 @@
+/* Write your T-SQL query statement below */
+select emp.name from employee emp join employee mng on emp.id = mng.managerId group by emp.name, emp.id having count(mng.managerId) >= 5
