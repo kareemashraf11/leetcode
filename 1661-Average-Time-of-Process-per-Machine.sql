@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+select sub.machine_id, round(avg(diff), 3) as processing_time from (select f.machine_id, f.process_id, f.timestamp - s.timestamp as diff from activity f, activity s where f.machine_id = s.machine_id and f.process_id = s.process_id and f.activity_type = 'end' and s.activity_type = 'start' group by f.machine_id, f.process_id) as sub group by machine_id
